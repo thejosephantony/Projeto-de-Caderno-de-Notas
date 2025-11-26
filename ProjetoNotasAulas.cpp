@@ -15,6 +15,11 @@ using std::getline;
 class LivroNotas {
 
 public:
+    // o construtor aqui inicializa CursoNome com a string fornecida como argumetno
+    LivroNotas( string nome){
+        setCursoNome(nome);
+    }
+
     // funcao que configura o nome do curso
     void setCursoNome(string nome){
         cursoNome = nome;          // armazena o nome do curso no objeto
@@ -38,18 +43,18 @@ private:
 
 // a funcao main inicia a execucao do programa
 int main(){
-    string NomeDoCurso; // string de caracteres que armazena o nome do curso
-    LivroNotas meuLivroNotas; // cria um objeto LivroNotas chamaado meuLivroNotas
 
-    cout << "Nome inicial do curso �: " << meuLivroNotas.getCursoNome() << endl;
+    // cria dois objetos LivroNotas
 
-    cout << "Informe o seu curso: \n" <<endl;
-    getline(cin, NomeDoCurso); // le o nome do curso com espacos em branco
-    meuLivroNotas.setCursoNome(NomeDoCurso);
-    cout << endl;
+    LivroNotas livroNotas1("Estruturas de Dados\n");
+    LivroNotas livroNotas2("Arquitetura de Computadores\n");
 
-    meuLivroNotas.mensagem(); // exibe a mensagem com o novo nome do curso
+     // exibe valor inicial de courseName para cada LivroNotas
+    cout << "livroNotas1 criados para o curso: " << livroNotas1.getCursoNome()
+    << "livroNotas2 criados para o curso: " << livroNotas2.getCursoNome() << endl;
+
     return 0;
     }
+
 
 
