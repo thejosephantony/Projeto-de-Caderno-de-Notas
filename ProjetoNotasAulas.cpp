@@ -1,60 +1,94 @@
 #include <iostream>
+#include <string>
 
 using std::cout;
 using std::cin;
 using std::endl;
-
-#include <string>
 using std::string;
 using std::getline;
 
-
-
-// definicao da classe
-
 class LivroNotas {
-
 public:
-    // o construtor aqui inicializa CursoNome com a string fornecida como argumetno
-    LivroNotas( string nome){
-        setCursoNome(nome);
+    // Construtor
+    LivroNotas(string nomeCurso, string nomeProfessor) {
+        setCursoNome(nomeCurso);
+        setProfessorNome(nomeProfessor);
     }
 
-    // funcao que configura o nome do curso
-    void setCursoNome(string nome){
-        cursoNome = nome;          // armazena o nome do curso no objeto
-    } // fim da funcao setCursoNome
+    void setCursoNome(string nomeCurso) {
+        cursoNome = nomeCurso;
+    }
 
-    string getCursoNome(){
+    string getCursoNome() {
         return cursoNome;
     }
 
-
-    // funcao que exibe uma mensagem ao usuario
-    void mensagem(){
-
-    cout << "Bem-vindo ao caderno de notas de " << getCursoNome() << "!\n" << endl;
-
-    }   // fim da funcao mensagem
-private:
-    string cursoNome;
-    }; // fim da classe LivroNotas
-
-
-// a funcao main inicia a execucao do programa
-int main(){
-
-    // cria dois objetos LivroNotas
-
-    LivroNotas livroNotas1("Estruturas de Dados\n");
-    LivroNotas livroNotas2("Arquitetura de Computadores\n");
-
-     // exibe valor inicial de courseName para cada LivroNotas
-    cout << "livroNotas1 criados para o curso: " << livroNotas1.getCursoNome()
-    << "livroNotas2 criados para o curso: " << livroNotas2.getCursoNome() << endl;
-
-    return 0;
+    void setProfessorNome(string nomeProfessor) {
+        professorNome = nomeProfessor;
     }
 
+    string getProfessorNome() {
+        return professorNome;
+    }
 
+    void mensagem() {
+        cout << "Bem-vindo ao caderno de notas do curso: "
+             << getCursoNome() << endl;
+
+        cout << "Professor: " << getProfessorNome() << endl;
+        cout << endl;
+    }
+
+    void cadastrarAluno() {
+        cout << "Digite o nome do aluno: ";
+        getline(cin, alunoNome);
+
+        cout << "Digite a primeira nota: ";
+        cin >> nota1;
+
+        cout << "Digite a segunda nota: ";
+        cin >> nota2;
+    }
+
+    double calcularMedia() {
+        return (nota1 + nota2) / 2;
+    }
+
+    void exibirResultado() {
+        double media = calcularMedia();
+
+        cout << endl;
+        cout << "===== RESULTADO DO ALUNO =====" << endl;
+        cout << "Aluno: " << alunoNome << endl;
+        cout << "Curso: " << cursoNome << endl;
+        cout << "Nota 1: " << nota1 << endl;
+        cout << "Nota 2: " << nota2 << endl;
+        cout << "Media: " << media << endl;
+
+        if (media >= 7.0) {
+            cout << "Situacao: Aprovado" << endl;
+        } else {
+            cout << "Situacao: Reprovado" << endl;
+        }
+    }
+
+private:
+    string cursoNome;
+    string professorNome;
+    string alunoNome;
+    double nota1;
+    double nota2;
+};
+
+int main() {
+    LivroNotas livroNotas1("Estruturas de Dados", "Joseph Antony");
+
+    livroNotas1.mensagem();
+
+    livroNotas1.cadastrarAluno();
+
+    livroNotas1.exibirResultado();
+
+    return 0;
+}
 
