@@ -37,6 +37,7 @@ void LivroNotas::mensagem() const {
     cout << "Curso: " << cursoNome << endl;
     cout << "Professor: " << professorNome << endl;
     cout << "======================================" << endl;
+    
 }
 
 void LivroNotas::cadastrarAluno() {
