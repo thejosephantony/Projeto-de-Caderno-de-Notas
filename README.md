@@ -327,7 +327,7 @@ Mesmo com as melhorias implementadas, o projeto ainda pode evoluir com novas fun
 - Permitir diferentes critérios de aprovação;
 - Criar relatórios mais detalhados.
 
-## Autor
+## Autor: Joseph Antony
 
 Projeto desenvolvido para estudo de C++ e Programação Orientada a Objetos.
 
